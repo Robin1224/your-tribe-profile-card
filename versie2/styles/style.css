@@ -7,6 +7,20 @@
   #1d7874
 */
 
+:root {
+  --desktop-bg: #008080;
+  --window-bg: #C0C0C0;
+  --window-accent: #808080;
+
+  --path-border-default: url(../assets/borders/border-image.png);
+  --path-border-taskbar: url(../assets/borders/border-taskbar-item.png);
+  --path-border-clock: url(../assets/borders/border-clock.png);
+
+  --path-border-default-small: url(../assets/borders/border-image-small.png);
+  --path-border-taskbar-small: url(../assets/borders/border-taskbar-item-small.png);
+  --path-border-clock-small: url(../assets/borders/border-clock-small.png);
+} 
+
 * {
   box-sizing: border-box;
 }
@@ -17,60 +31,83 @@ html {
 
 body {
   height: 100vh;
-  font-family: open sans;
+  font-family: windowsregular, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1d7874;
-  color: #10214e;
+  background-color: var(--window-accent);
 }
 
-article {
-  width: 90%;
-  max-width: 50em;
-  min-width: 20em;
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: end;
-  background: #ffe8c2;
-  box-shadow: 12px 12px 0px 0px #ffc05c;
-  border-radius: 1rem;
+.aspect-ratio-container {
   position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.container {
+  position:relative;
+  /* padding-bottom: 50%; */
+
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+
+  padding: 1em;
+
+  /* grid-template-areas: 
+  "a . . . . . . ."
+  "b . . . . . . ."
+  "c . . . . . . ."
+  "d . . . . . . ."
+  "e . . . . . . ."
+  "f . . . . . . ."; */
+
+  background: var(--desktop-bg);
+
+  border-image: var(--path-border-default-small);
+  border-style: solid;
+  border-width: 4px;
+  border-image-slice: 4;
+  border-image-repeat: round;
+
   transition: 0.25s;
-  border: 2px solid #ffc05c;
 }
 
-#naam {
-  font-family: greycliff-cf,sans-serif;
-  font-weight: 100;
-  font-style: normal;
+.desktop-icon {
+  /* display: grid;
 
-  font-size: 2.5em;
-  font-weight: 300;
-  margin: 0;
-  padding: 2em 4em 0 0;
-  text-align: center;
+  grid-template-columns: repeat(1fr, 5);
+  grid-template-rows: repeat(1fr, 5);
+  grid-template-areas: 
+  "... ico ico ico ..."
+  "... ico ico ico ..."
+  "... ico ico ico ..."
+  "... ico ico ico ..."
+  "lbl lbl lbl lbl lbl"; */
+
+  padding-right: 1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
-#opleiding {
-  font-family: greycliff-cf,sans-serif;
-  font-weight: 100;
-  font-style: normal;
+.desktop-icon > img {
+  
+  min-width: 50px;
 
-  padding-bottom: 2em;
+  /* grid-area: ico; */
 }
 
-img {
-  margin-right: 8em;
-  margin-top: 4em;
-  width: 15em;
-  border-radius: 4em;
-  border-width: 20px;
-  border: 2px solid #ffc05c;
-  box-shadow: 12px 12px 0px 0px #ffc05c;
-  position: relative;
-  transition: 0.25s 0.15s;
+.desktop-icon > p {
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+  color: #fff;
+  margin-top: 0.5em;
+  
+  /* grid-area: lbl; */
 }
 
 p {
@@ -84,4 +121,86 @@ article > p {
   text-align: center;
   border-radius: 0 0 1rem 1rem;
   width: 100%;
+}
+
+.test {
+  font-family: "windowsregular", monospace;
+}
+
+.taskbar {
+  display:block;
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height: 3em;
+  background: var(--window-bg);
+  border-image: var(--path-border-default-small);
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-image-slice: 4;
+  border-image-repeat: round;
+  display: flex;
+  align-items: flex-start;
+  padding: 3px;
+  padding-right: 0px;
+}
+
+.taskbar > div {
+  border-image: var(--path-border-taskbar-small);
+  border-style: solid;
+  border-width: 2px 4px 4px 2px;
+  border-image-slice: 2 4 4 2;
+  border-image-repeat: round;
+  height: 2.4em;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  padding-right: 5px;
+  max-width: 10em;
+  margin-right: 0.3em;
+}
+
+.taskbar > div > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transform: scaleX(0.8);
+  margin-top: 0.1em;
+}
+
+.taskbar > div > p {
+  transform:translateY(7px);
+  font-weight: normal;
+  font-size: 1.35em;
+  color: #000;
+  margin-left: 0.6em;
+}
+
+.start-button {
+  min-width: 4.6em;
+  max-width: 4.6em !important;
+}
+
+.start-button-label {
+  margin-left: 0 !important;
+  font-weight: bold !important;
+}
+
+.clock {
+  transform: translateX(0.15em);
+  max-width: 8em !important;
+  margin-left: auto;
+
+  border-image: var(--path-border-clock-small) !important;
+  border-width: 2px !important;
+  border-image-slice: 2 !important;
+}
+
+.clock-time {
+  transform:translateY(7px);
+  font-size: 1.35em;
+  color: #000;
+  margin-left: auto;
+  margin-right: 0.5em;
 }
