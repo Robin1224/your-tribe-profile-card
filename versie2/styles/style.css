@@ -11,6 +11,7 @@
   --desktop-bg: #008080;
   --window-bg: #C0C0C0;
   --window-accent: #808080;
+  --window-titlebar: #000082;
 
   --path-border-default: url(../assets/borders/border-image.png);
   --path-border-taskbar: url(../assets/borders/border-taskbar-item.png);
@@ -41,7 +42,7 @@ body {
 .aspect-ratio-container {
   position: relative;
   overflow: hidden;
-  width: 100%;
+  width: 70%;
 }
 
 .container {
@@ -54,13 +55,13 @@ body {
 
   padding: 1em;
 
-  /* grid-template-areas: 
+  grid-template-areas: 
   "a . . . . . . ."
-  "b . . . . . . ."
-  "c . . . . . . ."
-  "d . . . . . . ."
-  "e . . . . . . ."
-  "f . . . . . . ."; */
+  ". . b b b b b ."
+  ". . b b b b b ."
+  ". . b b b b b ."
+  ". . b b b b b ."
+  ". . . . . . . .";
 
   background: var(--desktop-bg);
 
@@ -85,6 +86,7 @@ body {
   "... ico ico ico ..."
   "lbl lbl lbl lbl lbl"; */
 
+  grid-area: a;
   padding-right: 1em;
 
   display: flex;
@@ -161,7 +163,7 @@ article > p {
   margin-right: 0.3em;
 }
 
-.taskbar > div > img {
+#start-img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -172,14 +174,14 @@ article > p {
 .taskbar > div > p {
   transform:translateY(7px);
   font-weight: normal;
-  font-size: 1.35em;
+  font-size: 1.2em;
   color: #000;
   margin-left: 0.6em;
 }
 
 .start-button {
-  min-width: 4.6em;
-  max-width: 4.6em !important;
+  min-width: 4.8em;
+  max-width: 4.8em !important;
 }
 
 .start-button-label {
@@ -203,4 +205,83 @@ article > p {
   color: #000;
   margin-left: auto;
   margin-right: 0.5em;
+}
+
+.window {
+  position: flex;
+  background: var(--window-bg);
+  border-image: var(--path-border-default-small);
+  border-style: solid;
+  border-width: 4px;
+  border-image-slice: 4;
+  border-image-repeat: round;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 0.5em;
+  transition: 0.25s;
+  grid-area: b;
+}
+
+.window-titlebar {
+  display: block;
+  background-color: var(--window-titlebar);
+  margin: 2px;
+  margin-right: 2px;
+  width: calc(100% / 2px);
+  height: 1.6em;
+}
+
+.window-content {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-areas: 
+  "a b b b"
+  ". b b b";
+  padding: 1em;
+}
+
+.window-content > img {
+  border-image: var(--path-border-clock-small);
+  border-style: solid;
+  border-width: 2px;
+  border-image-slice: 2;
+  border-image-repeat: round;
+  float: left;
+  position: top;
+  min-height: 2em;
+  min-width: 2em;
+  max-height: 8em;
+  max-width: 8em;
+  object-fit: contain;
+  grid-area: a;
+}
+
+.window-content > p {
+  font-size: 1em;
+  color: #000;
+  grid-area: b;
+}
+
+.window-titlebar > p {
+  display: inline-block;
+  font-size: 1em;
+  color: #fff; 
+  transform: translateY(-3px);
+}
+
+.window-titlebar > img {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  margin-left: 0.3em;
+  margin-top: 0.3em;
+}
+
+.window-in-taskbar > img {
+  height: 24px;
+  width: 24px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
