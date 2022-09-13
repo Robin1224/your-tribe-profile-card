@@ -1,0 +1,129 @@
+* {
+  box-sizing:border-box;
+}
+html {
+  height:100vh;
+}
+body {
+  height:100vh;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#ffe8c2;
+}
+
+article {
+  width:50vw;
+  max-width: 25em;
+  min-width:20em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  background: linear-gradient(0deg, #ffc05c 20%, #C05746 100%);
+  box-shadow:0 0 20px 20px rgba(0,0,0,.1);
+  border-radius:1rem;
+  position: relative;
+  transition:.50s;
+}
+
+article:hover {
+  transform:scale(1.05);
+  background: linear-gradient(0deg, #ffc05c 25%, #C05746 100%);
+}
+
+header {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  justify-content:flex-end;
+  
+}
+
+h1 {
+  margin:2rem 0 1rem;
+  color: #ffe8c2;
+}
+
+h2 {
+  
+}
+img {
+  width:10em;
+  border-radius:10em;
+  border:5px solid #ffc05c;
+  position:relative;
+  top:2rem;
+  transition:.25s .15s;
+  z-index: 2;
+}
+dl {
+  overflow: hidden;
+  border-top: 5px solid #ffc05c;
+  border-bottom: 5px solid #ffc05c;;
+
+  width:100%;
+  background: #ffe8c2;
+  
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "html-dd css-dd js-dd"
+    "html-dt css-dt js-dt"
+    ;
+  justify-items:center;
+  align-items:start;
+
+  padding:-2rem 0 -2rem;
+
+  margin-top: -3rem;
+  margin-bottom: 0;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+dl:hover { 
+  padding:5rem 0 3rem;
+}
+
+dt{
+  font-weight: bold;
+  border-top: 1px solid #C05746;
+  padding-top: .25rem;
+  margin-top: .25rem;
+  color: #C05746
+}
+dt:nth-of-type(1){ grid-area: html-dt; }
+dt:nth-of-type(2){ grid-area: css-dt; transform: translateY(1rem);}
+dt:nth-of-type(3){ grid-area: js-dt; }
+
+dd {
+  margin:0;
+  padding-left:.3rem;
+  transition:.25s .3s;
+}
+dd:nth-of-type(2){  
+  transform: translateY(1rem);
+}
+
+p { 
+  margin:0
+}
+
+article > p {
+  padding:3rem 0 2rem;
+  margin-top: 0;
+  background: linear-gradient(180deg, rgba(255, 192, 92, 0.3), #C05746 100%);
+  text-align:center;
+  border-radius: 0 0 1rem 1rem;
+  width:100%;
+  color: #ffe8c2;
+  transition: 0.5s;
+}
+
+.flower {
+  margin: -8px;
+}
