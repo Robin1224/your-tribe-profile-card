@@ -9,7 +9,7 @@
 
 :root {
   --desktop-bg: #008080;
-  --window-bg: #C0C0C0;
+  --window-bg: #c0c0c0;
   --window-accent: #808080;
   --window-titlebar: #000082;
 
@@ -20,7 +20,7 @@
   --path-border-default-small: url(../assets/borders/border-image-small.png);
   --path-border-taskbar-small: url(../assets/borders/border-taskbar-item-small.png);
   --path-border-clock-small: url(../assets/borders/border-clock-small.png);
-} 
+}
 
 * {
   box-sizing: border-box;
@@ -46,7 +46,7 @@ body {
 }
 
 .container {
-  position:relative;
+  position: relative;
   /* padding-bottom: 50%; */
 
   display: grid;
@@ -55,13 +55,13 @@ body {
 
   padding: 1em;
 
-  grid-template-areas: 
-  "a . . . . . . ."
-  ". . b b b b b ."
-  ". . b b b b b ."
-  ". . b b b b b ."
-  ". . b b b b b ."
-  ". . . . . . . .";
+  grid-template-areas:
+    "a . . . . . . ."
+    ". . b b b b b ."
+    ". . b b b b b ."
+    ". . b b b b b ."
+    ". . b b b b b ."
+    ". . . . . . . .";
 
   background: var(--desktop-bg);
 
@@ -92,11 +92,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .desktop-icon > img {
-  
   min-width: 50px;
 
   /* grid-area: ico; */
@@ -108,7 +106,7 @@ body {
   font-size: 1em;
   color: #fff;
   margin-top: 0.5em;
-  
+
   /* grid-area: lbl; */
 }
 
@@ -130,11 +128,11 @@ article > p {
 }
 
 .taskbar {
-  display:block;
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 3em;
   background: var(--window-bg);
   border-image: var(--path-border-default-small);
@@ -172,7 +170,7 @@ article > p {
 }
 
 .taskbar > div > p {
-  transform:translateY(7px);
+  transform: translateY(7px);
   font-weight: normal;
   font-size: 1.2em;
   color: #000;
@@ -200,7 +198,7 @@ article > p {
 }
 
 .clock-time {
-  transform:translateY(7px);
+  transform: translateY(7px);
   font-size: 1.35em;
   color: #000;
   margin-left: auto;
@@ -236,9 +234,9 @@ article > p {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  grid-template-areas: 
-  "a b b b"
-  ". b b b";
+  grid-template-areas:
+    "a b b b"
+    ". b b b";
   padding: 1em;
 }
 
@@ -267,7 +265,7 @@ article > p {
 .window-titlebar > p {
   display: inline-block;
   font-size: 1em;
-  color: #fff; 
+  color: #fff;
   transform: translateY(-3px);
 }
 
